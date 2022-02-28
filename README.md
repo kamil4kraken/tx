@@ -1,4 +1,5 @@
 first code attempt in rust, coming from c++/go
+
 Assumptions:
 - withdraws are not disputable
 - dispute / resolve / chargeback can be processed in full amount or rejected
@@ -12,4 +13,4 @@ Assumptions:
 Transactions are read from csv file using iterator by main thread and processed in shards (size = #cpu) using client_id as shard key.
 Worker threads receive transactions from channels and store account and transaction history/state in-memory.
 Transactions and accounts in this implementation are stored in simple hashmap (without persistence and without write-ahead logging #TODO).
-In-memory storage instance is per shard/thread (no locks are needed during transaction processing). Consistent hashing should be used (#TODO) to allow scale-up.
+In-memory storage instance is per shard/thread (no locks are needed during transaction processing).
